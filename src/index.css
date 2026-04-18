@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Fallback for Copperplate if not on system */
+@font-face {
+  font-family: 'Copperplate';
+  src: local('Copperplate Gothic Light'), local('Copperplate'), local('Copperplate Gothic Bold');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* Brand Colors */
+  --evergreen: #105232;
+  --palemoss: #D8E0D1;
+  --cream: #F8F3DF;
+  --charcoal: #2C2C2C;
+  --amber: #C4922A;
+  --mid-green: #19653F;
+  --white: #FFFFFF;
+
+  /* Typography */
+  --font-heading: 'Copperplate', 'Copperplate Gothic Light', 'Cinzel', serif;
+  --font-body: 'Jost', sans-serif;
+
+  /* Spacing & Borders */
+  --radius-sm: 4px;
+  --max-width-desktop: 1440px;
+  --max-width-mobile: 390px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.6;
+  font-weight: 300; /* Jost Light 300 */
+  -webkit-font-smoothing: antialiased;
+  /* Ensure enough scroll height for the animation to complete */
+  min-height: 400vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--evergreen);
+  font-weight: normal;
+}
+
+/* Typography Scale */
+h1 { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.1; }
+h2 { font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.2; }
+h3 { font-size: 1.25rem; }
+
+/* Section Logic */
+section {
+  padding: 80px 24px;
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+    max-width: var(--max-width-mobile);
+  }
+}
+
+/* Tonal Blocking */
+.bg-evergreen { background-color: var(--evergreen); color: var(--white); }
+.bg-palemoss { background-color: var(--palemoss); color: var(--evergreen); }
+.bg-cream { background-color: var(--cream); color: var(--charcoal); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+}
+
+.btn-primary {
+  background-color: var(--evergreen);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--mid-green);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: rgba(16, 82, 50, 0.2);
+  color: var(--evergreen);
+}
+
+.btn-secondary:hover {
+  border-color: var(--evergreen);
+  background-color: rgba(16, 82, 50, 0.05);
+}
+
+.btn-cream {
+  background-color: var(--cream);
+  color: var(--evergreen);
+}
+
+.btn-cream:hover {
+  background-color: var(--palemoss);
+}
+
+/* Layout Helpers */
+.container {
+  max-width: var(--max-width-desktop);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Utilities */
+.text-amber { color: var(--amber); }
+.tracking-widest { letter-spacing: 0.2em; }
+.unhurried-space { margin-bottom: 48px; }
+
+/* No Shadows per Brand Guidelines */
+* {
+  box-shadow: none !important;
+}
+
+.section-padding {
+  padding: 120px 0;
+}
+
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.w-full { width: 100%; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.text-center { text-align: center; }
+.text-white { color: var(--white); }
+.text-xs { font-size: 0.75rem; }
+.opacity-60 { opacity: 0.6; }
+.opacity-80 { opacity: 0.8; }
+.opacity-90 { opacity: 0.9; }
+.uppercase { text-transform: uppercase; }
+
+/* Allow background images specifically for hero etc if needed, but the rule says "No Gradients" */
+.hero-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
